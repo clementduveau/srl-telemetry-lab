@@ -1,0 +1,113 @@
+// Backends
+import.git "grafana_cloud" {
+  repository = "https://github.com/grafana/alloy-modules.git"
+  revision = "main"
+  path = "modules/cloud/grafana/cloud/module.alloy"
+  pull_frequency = "15m"
+}
+
+grafana_cloud.stack "receivers" {
+  stack_name = "CHANGE ME"
+  token = "CHANGE ME"
+}
+
+// grafana_cloud.stack.receivers.metrics
+// grafana_cloud.stack.receivers.logs
+
+// Alloy self check
+///////////////////
+prometheus.exporter.self "integrations_alloy" { }
+discovery.relabel "integrations_alloy" {
+  targets = prometheus.exporter.self.integrations_alloy.targets
+
+  rule {
+    target_label = "instance"
+    replacement  = constants.hostname
+  }
+
+  rule {
+    target_label = "alloy_hostname"
+    replacement  = constants.hostname
+  }
+
+  rule {
+    target_label = "job"
+    replacement  = "integrations/alloy-check"
+  }
+}
+prometheus.scrape "integrations_alloy" {
+  targets    = discovery.relabel.integrations_alloy.output
+  forward_to = [prometheus.relabel.integrations_alloy.receiver]  
+
+  scrape_interval = "60s"
+}
+prometheus.relabel "integrations_alloy" {
+  forward_to = [grafana_cloud.stack.receivers.metrics]
+
+  rule {
+    source_labels = ["__name__"]
+    regex         = "(prometheus_target_sync_length_seconds_sum|prometheus_target_scrapes_.*|prometheus_target_interval.*|prometheus_sd_discovered_targets|alloy_build.*|prometheus_remote_write_wal_samples_appended_total|process_start_time_seconds)"
+    action        = "keep"
+  }
+}
+///////////////////
+
+// gnmi scraping
+////////////////
+prometheus.scrape "gnmic" {
+	targets = [{
+		__address__ = "gnmic:9273",
+	}]
+	forward_to = [grafana_cloud.stack.receivers.metrics]
+	job_name        = "gnmic"
+	scrape_interval = "5s"
+	scrape_timeout  = "5s"
+}
+////////////////
+
+
+// Logs
+///////
+discovery.relabel "syslog" {
+	targets = []
+
+	rule {
+		source_labels = ["__syslog_message_hostname"]
+		target_label  = "source"
+	}
+
+	rule {
+		source_labels = ["__syslog_message_severity"]
+		target_label  = "level"
+	}
+
+	rule {
+		source_labels = ["__syslog_message_app_name"]
+		target_label  = "application"
+	}
+
+	rule {
+		source_labels = ["__syslog_message_facility"]
+		target_label  = "facility"
+	}
+
+	rule {
+		source_labels = ["__syslog_message_proc_id"]
+		target_label  = "procid"
+	}
+}
+
+loki.source.syslog "syslog" {
+	listener {
+		address               = "0.0.0.0:1514"
+		idle_timeout          = "5m0s"
+		label_structured_data = true
+		labels                = {
+			job = "syslog",
+		}
+		max_message_length = 0
+	}
+	forward_to    = [grafana_cloud.stack.receivers.logs]
+	relabel_rules = discovery.relabel.syslog.rules
+}
+///////

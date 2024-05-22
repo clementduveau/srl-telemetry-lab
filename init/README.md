@@ -9,3 +9,8 @@ chmod +x docker-install.sh
 chmod +x containerlab-install.sh
 ./containerlab-install.sh
 ```
+
+3. RUN
+```bash
+sudo containerlab destroy --cleanup && sudo containerlab deploy --reconfigure && sudo bash traffic.sh start all
+```
