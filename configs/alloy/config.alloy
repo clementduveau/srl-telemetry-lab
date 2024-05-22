@@ -1,4 +1,5 @@
 // Backends
+///////////
 import.git "grafana_cloud" {
   repository = "https://github.com/grafana/alloy-modules.git"
   revision = "main"
@@ -6,13 +7,24 @@ import.git "grafana_cloud" {
   pull_frequency = "15m"
 }
 
+local.file "token" {
+  filename  = "/etc/alloy/token.env"
+  is_secret = true
+}
+
+local.file "stack" {
+  filename  = "/etc/alloy/stack.env"
+}
+
 grafana_cloud.stack "receivers" {
-  stack_name = "CHANGE ME"
-  token = "CHANGE ME"
+  stack_name = local.file.stack.content
+  token = local.file.token.content
 }
 
 // grafana_cloud.stack.receivers.metrics
 // grafana_cloud.stack.receivers.logs
+///////////
+
 
 // Alloy self check
 ///////////////////
@@ -51,6 +63,7 @@ prometheus.relabel "integrations_alloy" {
   }
 }
 ///////////////////
+
 
 // gnmi scraping
 ////////////////

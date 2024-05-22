@@ -123,6 +123,8 @@ topology:
       image: grafana/alloy:v1.1.0
       binds:
         - configs/alloy/config.alloy:/etc/alloy/config.alloy:ro
+        - configs/alloy/stack.env:/etc/alloy/stack.env:ro
+        - configs/alloy/token.env:/etc/alloy/token.env:ro
       cmd: --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data
       ports:
         - 12345:12345
