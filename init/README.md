@@ -10,7 +10,9 @@ chmod +x containerlab-install.sh
 ./containerlab-install.sh
 ```
 
-3. RUN
+3. Update the stack.env and token.env for Alloy in configs/alloy
+
+4. RUN
 ```bash
 sudo containerlab destroy --cleanup && sudo containerlab deploy --reconfigure && sudo bash traffic.sh start all
 ```
