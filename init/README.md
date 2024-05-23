@@ -14,5 +14,6 @@ chmod +x containerlab-install.sh
 
 4. RUN
 ```bash
-sudo containerlab destroy --cleanup && sudo containerlab deploy --reconfigure && sudo bash traffic.sh start all
+sudo containerlab deploy --reconfigure
+sudo bash traffic.sh start all
 ```

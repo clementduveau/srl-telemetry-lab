@@ -108,7 +108,7 @@ topology:
       ports:
         - 3000:3000
       env:
-        GF_INSTALL_PLUGINS: agenty-flowcharting-panel;andrewbmchugh-flow-panel
+        GF_INSTALL_PLUGINS: andrewbmchugh-flow-panel
         # GF_INSTALL_PLUGINS: https://algenty.github.io/flowcharting-repository/archives/agenty-flowcharting-panel-1.0.0d.220606199-SNAPSHOT.zip;agenty-flowcharting-panel
         # env vars to enable anonymous access
         GF_ORG_ROLE: "Admin"
@@ -117,18 +117,18 @@ topology:
         GF_AUTH_ANONYMOUS: "true"
       group: "10"
 
-    alloy:
-      kind: linux
-      mgmt-ipv4: 172.80.80.47
-      image: grafana/alloy:v1.1.0
-      binds:
-        - configs/alloy/config.alloy:/etc/alloy/config.alloy:ro
-        - configs/alloy/stack.env:/etc/alloy/stack.env:ro
-        - configs/alloy/token.env:/etc/alloy/token.env:ro
-      cmd: --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data
-      ports:
-        - 12345:12345
-      group: "10"
+    # alloy:
+    #   kind: linux
+    #   mgmt-ipv4: 172.80.80.47
+    #   image: grafana/alloy:v1.1.0
+    #   binds:
+    #     - configs/alloy/config.alloy:/etc/alloy/config.alloy:ro
+    #     - configs/alloy/stack.env:/etc/alloy/stack.env:ro
+    #     - configs/alloy/token.env:/etc/alloy/token.env:ro
+    #   cmd: --server.http.listen-addr=0.0.0.0:12345 --storage.path=/var/lib/alloy/data
+    #   ports:
+    #     - 12345:12345
+    #   group: "10"
 
     ### LOGGING STACK ###
     syslog:

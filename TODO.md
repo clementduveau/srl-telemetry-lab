@@ -1,7 +1,7 @@
 # Minimal
 - Document dashboard deployment
-- Test with Grafana 11
-- Fix flowchart panel
+- Test with Grafana 11 -> No surprise, flow chart broken
+- Fix flowchart panel -> Switch to Canvas
 - Internal publishing
 
 # Useful
