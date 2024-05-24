@@ -106,7 +106,7 @@ topology:
         - configs/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
         - configs/grafana/dashboards:/var/lib/grafana/dashboards
         - images/front-panel.png:/usr/share/grafana/public/img/bg/front-panel.png
-        - images/telemetry.png:/usr/share/grafana/public/img/bg/telemetry.png
+        - images/linkbandwidth.jpg:/usr/share/grafana/public/img/bg/linkbandwidth.jpg
       ports:
         - 3000:3000
       env:
