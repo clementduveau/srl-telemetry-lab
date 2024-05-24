@@ -168,15 +168,24 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "text",
                 "value": null
               },
               {
+                "color": "green",
+                "value": 5000000
+              },
+              {
+                "color": "#EAB839",
+                "value": 50000000
+              },
+              {
                 "color": "red",
-                "value": 80
+                "value": 100000000
               }
             ]
-          }
+          },
+          "unit": "binBps"
         },
         "overrides": []
       },
@@ -197,7 +206,8 @@
               "fixed": "transparent"
             },
             "image": {
-              "fixed": "img/bg/telemetry.png"
+              "fixed": "img/bg/linkbandwidth.jpg",
+              "mode": "fixed"
             }
           },
           "border": {
@@ -213,6 +223,7 @@
             {
               "background": {
                 "color": {
+                  "field": "leaf1:ethernet-1/1:out",
                   "fixed": "#D9D9D9"
                 }
               },
@@ -226,9 +237,9 @@
                 "color": {
                   "fixed": "#000000"
                 },
-                "size": 20,
+                "size": 12,
                 "text": {
-                  "field": "",
+                  "field": "leaf1:ethernet-1/1:out",
                   "fixed": "",
                   "mode": "field"
                 },
@@ -238,12 +249,660 @@
                 "horizontal": "left",
                 "vertical": "top"
               },
-              "name": "Element 1",
+              "name": "leaf1-1-out",
               "placement": {
-                "height": 50,
-                "left": 100,
-                "top": 99,
-                "width": 260
+                "height": 21,
+                "left": 88,
+                "top": 560,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf1:ethernet-1/49:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf1:ethernet-1/49:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf1-49-out",
+              "placement": {
+                "height": 21,
+                "left": 80,
+                "top": 400,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf1:ethernet-1/50:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf1:ethernet-1/50:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf1-50-out",
+              "placement": {
+                "height": 21,
+                "left": 160,
+                "top": 400,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf2:ethernet-1/1:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf2:ethernet-1/1:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf2-1-out",
+              "placement": {
+                "height": 21,
+                "left": 452,
+                "top": 560,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf2:ethernet-1/49:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf2:ethernet-1/49:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf2-49-out",
+              "placement": {
+                "height": 21,
+                "left": 400,
+                "top": 352,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf2:ethernet-1/50:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf2:ethernet-1/50:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf2-50-out",
+              "placement": {
+                "height": 21,
+                "left": 488,
+                "top": 352,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf3:ethernet-1/1:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf3:ethernet-1/1:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf3-1-out",
+              "placement": {
+                "height": 21,
+                "left": 839,
+                "top": 560,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf3:ethernet-1/49:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf3:ethernet-1/49:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf3-49-out",
+              "placement": {
+                "height": 21,
+                "left": 762,
+                "top": 411,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf3:ethernet-1/50:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf3:ethernet-1/50:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "leaf3-50-out",
+              "placement": {
+                "height": 21,
+                "left": 849,
+                "top": 411,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine1:ethernet-1/1:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine1:ethernet-1/1:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine1-1-out",
+              "placement": {
+                "height": 21,
+                "left": 205,
+                "top": 238,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine1:ethernet-1/2:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine1:ethernet-1/2:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine1-2-out",
+              "placement": {
+                "height": 21,
+                "left": 350,
+                "top": 207,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine1:ethernet-1/3:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine1:ethernet-1/3:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine1-3-out",
+              "placement": {
+                "height": 21,
+                "left": 380,
+                "top": 138,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine2:ethernet-1/1:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine2:ethernet-1/1:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine2-1-out",
+              "placement": {
+                "height": 21,
+                "left": 495,
+                "top": 138,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine2:ethernet-1/2:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine2:ethernet-1/2:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine2-2-out",
+              "placement": {
+                "height": 21,
+                "left": 531,
+                "top": 207,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "spine2:ethernet-1/3:out",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "spine2:ethernet-1/3:out",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "spine2-3-out",
+              "placement": {
+                "height": 21,
+                "left": 684,
+                "top": 238,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf3:ethernet-1/1:in",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf3:ethernet-1/1:in",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "client3-out",
+              "placement": {
+                "height": 21,
+                "left": 839,
+                "top": 646,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf2:ethernet-1/1:in",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf2:ethernet-1/1:in",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "client2-out",
+              "placement": {
+                "height": 21,
+                "left": 452,
+                "top": 646,
+                "width": 72
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "leaf1:ethernet-1/1:in",
+                  "fixed": "#D9D9D9"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 12,
+                "text": {
+                  "field": "leaf1:ethernet-1/1:in",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "client1-out",
+              "placement": {
+                "height": 21,
+                "left": 88,
+                "top": 646,
+                "width": 72
               },
               "type": "metric-value"
             }
@@ -358,6 +1017,10 @@
             "color": {
               "fixed": "dark-green"
             }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
           },
           "elements": [
             {
@@ -937,6 +1600,13 @@
             }
           ],
           "name": "Element 1716482452659",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
           "type": "frame"
         },
         "showAdvancedTypes": true
@@ -1972,6 +2642,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1985,6 +2656,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2006,7 +2678,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -2028,6 +2701,7 @@
           "showLegend": true
         },
         "tooltip": {
+          "maxHeight": 600,
           "mode": "single",
           "sort": "none"
         }
@@ -2057,8 +2731,8 @@
       {
         "current": {
           "selected": false,
-          "text": "leaf1",
-          "value": "leaf1"
+          "text": "spine1",
+          "value": "spine1"
         },
         "datasource": {
           "type": "prometheus",
@@ -2113,8 +2787,8 @@
       {
         "current": {
           "selected": false,
-          "text": "sr_cli",
-          "value": "sr_cli"
+          "text": "sr_xdp_cpm",
+          "value": "sr_xdp_cpm"
         },
         "datasource": {
           "type": "loki",
@@ -2129,7 +2803,7 @@
         "query": {
           "label": "application",
           "refId": "LokiVariableQueryEditor-VariableQuery",
-          "stream": "",
+          "stream": "{source=\"$NE\"}",
           "type": 1
         },
         "refresh": 2,
@@ -2149,6 +2823,6 @@
   "timezone": "",
   "title": "SR Linux Telemetry",
   "uid": "kawVPD-Gk",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
