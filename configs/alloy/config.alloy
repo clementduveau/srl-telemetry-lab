@@ -1,12 +1,5 @@
 // Backends
 ///////////
-import.git "grafana_cloud" {
-  repository = "https://github.com/grafana/alloy-modules.git"
-  revision = "main"
-  path = "modules/cloud/grafana/cloud/module.alloy"
-  pull_frequency = "15m"
-}
-
 local.file "token" {
   filename  = "/etc/alloy/token.env"
   is_secret = true
@@ -16,13 +9,26 @@ local.file "stack" {
   filename  = "/etc/alloy/stack.env"
 }
 
-grafana_cloud.stack "receivers" {
-  stack_name = local.file.stack.content
-  token = local.file.token.content
-}
+prometheus.remote_write "default" {
+  endpoint {
+    url = "https://prometheus-us-central1.grafana.net/api/prom/push"
 
-// grafana_cloud.stack.receivers.metrics
-// grafana_cloud.stack.receivers.logs
+    basic_auth {
+      username = "1270675"
+      password = local.file.token.content
+    }
+  }
+}
+loki.write "default" {
+  endpoint {
+    url = "https://logs-prod-017.grafana.net/loki/api/v1/push"
+
+    basic_auth {
+      username = "734383"
+      password = local.file.token.content
+    }
+  }
+}
 ///////////
 
 
@@ -54,7 +60,7 @@ prometheus.scrape "integrations_alloy" {
   scrape_interval = "60s"
 }
 prometheus.relabel "integrations_alloy" {
-  forward_to = [grafana_cloud.stack.receivers.metrics]
+  forward_to = [prometheus.remote_write.default.receiver]
 
   rule {
     source_labels = ["__name__"]
@@ -71,9 +77,9 @@ prometheus.scrape "gnmic" {
 	targets = [{
 		__address__ = "gnmic:9273",
 	}]
-	forward_to = [grafana_cloud.stack.receivers.metrics]
+	forward_to = [prometheus.remote_write.default.receiver]
 	job_name        = "gnmic"
-	scrape_interval = "5s"
+	scrape_interval = "30s"
 	scrape_timeout  = "5s"
 }
 ////////////////
@@ -81,8 +87,8 @@ prometheus.scrape "gnmic" {
 
 // Logs
 ///////
-discovery.relabel "syslog" {
-	targets = []
+loki.relabel "syslog" {
+	forward_to = [loki.write.default.receiver]
 
 	rule {
 		source_labels = ["__syslog_message_hostname"]
@@ -120,7 +126,6 @@ loki.source.syslog "syslog" {
 		}
 		max_message_length = 0
 	}
-	forward_to    = [grafana_cloud.stack.receivers.logs]
-	relabel_rules = discovery.relabel.syslog.rules
+	forward_to    = [loki.relabel.syslog.receiver]
 }
 ///////

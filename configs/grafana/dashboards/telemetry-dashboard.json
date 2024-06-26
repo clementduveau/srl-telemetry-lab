@@ -1,4 +1,85 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_GRAFANACLOUD-PARTNERSEDEMO-PROM",
+      "label": "grafanacloud-partnersedemo-prom",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    },
+    {
+      "name": "DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS",
+      "label": "grafanacloud-partnersedemo-logs",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "loki",
+      "pluginName": "Loki"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "canvas",
+      "name": "Canvas",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.2.0-72343"
+    },
+    {
+      "type": "panel",
+      "id": "logs",
+      "name": "Logs",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "loki",
+      "name": "Loki",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "state-timeline",
+      "name": "State timeline",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -21,10 +102,11 @@
       }
     ]
   },
+  "description": "This dashboard visualizes SR Linux telemetry, featuring panels such as Memory and Service status across various services. It displays details on NE-specific logging, log summaries, and log volume metrics, helping in the efficient monitoring of system performance and operational health.",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": 1,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -44,7 +126,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -129,7 +211,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_traffic_rate_in_bps",
@@ -140,7 +222,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_traffic_rate_out_bps",
@@ -156,7 +238,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -206,18 +288,15 @@
               "fixed": "transparent"
             },
             "image": {
-              "fixed": "img/bg/linkbandwidth.jpg",
+              "fixed": "https://partnersedemo-img.s3.eu-north-1.amazonaws.com/linkbandwidth.jpg",
               "mode": "fixed"
-            }
+            },
+            "size": "fill"
           },
           "border": {
             "color": {
               "fixed": "dark-green"
             }
-          },
-          "constraint": {
-            "horizontal": "left",
-            "vertical": "top"
           },
           "elements": [
             {
@@ -246,15 +325,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-1-out",
               "placement": {
-                "height": 21,
-                "left": 88,
-                "top": 560,
-                "width": 72
+                "bottom": 23.197115384615387,
+                "left": 9.46236559139785,
+                "right": 82.79569892473118,
+                "top": 74.27884615384616
               },
               "type": "metric-value"
             },
@@ -284,15 +363,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-49-out",
               "placement": {
-                "height": 21,
-                "left": 80,
-                "top": 400,
-                "width": 72
+                "bottom": 49.39903846153847,
+                "left": 13.333333333333334,
+                "right": 78.92473118279571,
+                "top": 48.07692307692308
               },
               "type": "metric-value"
             },
@@ -322,15 +401,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-50-out",
               "placement": {
-                "height": 21,
-                "left": 160,
-                "top": 400,
-                "width": 72
+                "bottom": 49.39903846153847,
+                "left": 22.043010752688172,
+                "right": 70.21505376344086,
+                "top": 48.07692307692308
               },
               "type": "metric-value"
             },
@@ -360,15 +439,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-1-out",
               "placement": {
-                "height": 21,
-                "left": 452,
-                "top": 560,
-                "width": 72
+                "bottom": 23.197115384615387,
+                "left": 48.60215053763441,
+                "right": 43.655913978494624,
+                "top": 74.27884615384616
               },
               "type": "metric-value"
             },
@@ -398,15 +477,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-49-out",
               "placement": {
-                "height": 21,
-                "left": 400,
-                "top": 352,
-                "width": 72
+                "bottom": 49.39903846153847,
+                "left": 43.44086021505376,
+                "right": 48.817204301075265,
+                "top": 48.07692307692308
               },
               "type": "metric-value"
             },
@@ -436,15 +515,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-50-out",
               "placement": {
-                "height": 21,
-                "left": 488,
-                "top": 352,
-                "width": 72
+                "bottom": 49.39903846153847,
+                "left": 52.473118279569896,
+                "right": 39.784946236559136,
+                "top": 48.07692307692308
               },
               "type": "metric-value"
             },
@@ -475,15 +554,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-1-out",
               "placement": {
-                "height": 21,
-                "left": 839,
-                "top": 560,
-                "width": 72
+                "bottom": 23.197115384615387,
+                "left": 90.21505376344085,
+                "right": 2.043010752688172,
+                "top": 74.27884615384616
               },
               "type": "metric-value"
             },
@@ -513,15 +592,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-49-out",
               "placement": {
-                "height": 21,
-                "left": 762,
-                "top": 411,
-                "width": 72
+                "bottom": 49.15865384615385,
+                "left": 77.41935483870968,
+                "right": 14.838709677419354,
+                "top": 48.31730769230769
               },
               "type": "metric-value"
             },
@@ -551,15 +630,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-50-out",
               "placement": {
-                "height": 21,
-                "left": 849,
-                "top": 411,
-                "width": 72
+                "bottom": 49.15865384615385,
+                "left": 86.34408602150538,
+                "right": 5.913978494623656,
+                "top": 48.31730769230769
               },
               "type": "metric-value"
             },
@@ -589,15 +668,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-1-out",
               "placement": {
-                "height": 21,
-                "left": 205,
-                "top": 238,
-                "width": 72
+                "bottom": 68.8701923076923,
+                "left": 22.043010752688172,
+                "right": 70.21505376344086,
+                "top": 28.60576923076923
               },
               "type": "metric-value"
             },
@@ -627,15 +706,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-2-out",
               "placement": {
-                "height": 21,
-                "left": 350,
-                "top": 207,
-                "width": 72
+                "bottom": 72.59615384615384,
+                "left": 37.634408602150536,
+                "right": 54.623655913978496,
+                "top": 24.879807692307693
               },
               "type": "metric-value"
             },
@@ -665,15 +744,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-3-out",
               "placement": {
-                "height": 21,
-                "left": 380,
-                "top": 138,
-                "width": 72
+                "bottom": 79.6875,
+                "left": 40.86021505376344,
+                "right": 51.3978494623656,
+                "top": 17.908653846153847
               },
               "type": "metric-value"
             },
@@ -703,15 +782,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-1-out",
               "placement": {
-                "height": 21,
-                "left": 495,
-                "top": 138,
-                "width": 72
+                "bottom": 79.5673076923077,
+                "left": 53.2258064516129,
+                "right": 39.03225806451613,
+                "top": 17.908653846153847
               },
               "type": "metric-value"
             },
@@ -741,15 +820,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-2-out",
               "placement": {
-                "height": 21,
-                "left": 531,
-                "top": 207,
-                "width": 72
+                "bottom": 72.59615384615384,
+                "left": 57.096774193548384,
+                "right": 35.16129032258065,
+                "top": 24.879807692307693
               },
               "type": "metric-value"
             },
@@ -778,16 +857,17 @@
                 },
                 "valign": "middle"
               },
+              "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-3-out",
               "placement": {
-                "height": 21,
-                "left": 684,
-                "top": 238,
-                "width": 72
+                "bottom": 68.8701923076923,
+                "left": 73.54838709677419,
+                "right": 18.70967741935484,
+                "top": 28.60576923076923
               },
               "type": "metric-value"
             },
@@ -818,15 +898,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "client3-out",
               "placement": {
-                "height": 21,
-                "left": 839,
-                "top": 646,
-                "width": 72
+                "bottom": 13.581730769230768,
+                "left": 90.21505376344085,
+                "right": 2.043010752688172,
+                "top": 83.89423076923077
               },
               "type": "metric-value"
             },
@@ -856,15 +936,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "client2-out",
               "placement": {
-                "height": 21,
-                "left": 452,
-                "top": 646,
-                "width": 72
+                "bottom": 13.581730769230768,
+                "left": 48.60215053763441,
+                "right": 43.655913978494624,
+                "top": 83.89423076923077
               },
               "type": "metric-value"
             },
@@ -894,37 +974,30 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "client1-out",
               "placement": {
-                "height": 21,
-                "left": 88,
-                "top": 646,
-                "width": 72
+                "bottom": 13.581730769230768,
+                "left": 9.46236559139785,
+                "right": 82.79569892473118,
+                "top": 83.89423076923077
               },
               "type": "metric-value"
             }
           ],
           "name": "Element 1716482490884",
-          "placement": {
-            "height": 100,
-            "left": 0,
-            "rotation": 0,
-            "top": 0,
-            "width": 100
-          },
           "type": "frame"
         },
         "showAdvancedTypes": true
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "expr": "gnmic_srl_if_traffic_rate_out_bps",
           "interval": "",
@@ -934,7 +1007,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "expr": "gnmic_srl_if_traffic_rate_in_bps",
           "interval": "",
@@ -944,7 +1017,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_oper_state_oper_state",
@@ -960,7 +1033,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1010,8 +1083,9 @@
               "fixed": "transparent"
             },
             "image": {
-              "fixed": "img/bg/front-panel.png"
-            }
+              "fixed": "https://partnersedemo-img.s3.eu-north-1.amazonaws.com/front-panel.png"
+            },
+            "size": "fill"
           },
           "border": {
             "color": {
@@ -1049,15 +1123,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-50",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 570,
-                "width": 33
+                "bottom": 2.814569536423841,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 94.37086092715232
               },
               "type": "metric-value"
             },
@@ -1087,15 +1161,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-49",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 544,
-                "width": 33
+                "bottom": 7.119205298013245,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 90.06622516556291
               },
               "type": "metric-value"
             },
@@ -1125,15 +1199,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf3-1",
               "placement": {
-                "height": 17,
-                "left": 94,
-                "top": 517,
-                "width": 33
+                "bottom": 11.589403973509933,
+                "left": 10.10752688172043,
+                "right": 86.34408602150538,
+                "top": 85.59602649006622
               },
               "type": "metric-value"
             },
@@ -1163,15 +1237,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-50",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 447,
-                "width": 33
+                "bottom": 23.178807947019866,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 74.00662251655629
               },
               "type": "metric-value"
             },
@@ -1201,15 +1275,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-49",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 421,
-                "width": 33
+                "bottom": 27.483443708609272,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 69.70198675496688
               },
               "type": "metric-value"
             },
@@ -1239,15 +1313,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf2-1",
               "placement": {
-                "height": 17,
-                "left": 94,
-                "top": 392,
-                "width": 33
+                "bottom": 32.28476821192053,
+                "left": 10.10752688172043,
+                "right": 86.34408602150538,
+                "top": 64.90066225165563
               },
               "type": "metric-value"
             },
@@ -1277,15 +1351,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-50",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 324,
-                "width": 33
+                "bottom": 43.54304635761589,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 53.64238410596026
               },
               "type": "metric-value"
             },
@@ -1315,15 +1389,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-49",
               "placement": {
-                "height": 17,
-                "left": 635,
-                "top": 298,
-                "width": 33
+                "bottom": 47.847682119205295,
+                "left": 68.27956989247312,
+                "right": 28.172043010752688,
+                "top": 49.337748344370866
               },
               "type": "metric-value"
             },
@@ -1353,15 +1427,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "leaf1-1",
               "placement": {
-                "height": 17,
-                "left": 94,
-                "top": 272,
-                "width": 33
+                "bottom": 52.152317880794705,
+                "left": 10.10752688172043,
+                "right": 86.34408602150538,
+                "top": 45.033112582781456
               },
               "type": "metric-value"
             },
@@ -1391,15 +1465,15 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-3",
               "placement": {
-                "height": 17,
-                "left": 190,
-                "top": 168,
-                "width": 33
+                "bottom": 69.37086092715232,
+                "left": 20.43010752688172,
+                "right": 76.0215053763441,
+                "top": 27.81456953642384
               },
               "type": "metric-value"
             },
@@ -1430,15 +1504,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-2",
               "placement": {
-                "height": 17,
-                "left": 154,
-                "top": 191,
-                "width": 33
+                "bottom": 65.56291390728477,
+                "left": 16.559139784946236,
+                "right": 79.89247311827957,
+                "top": 31.62251655629139
               },
               "type": "metric-value"
             },
@@ -1469,15 +1543,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine2-1",
               "placement": {
-                "height": 17,
-                "left": 154,
-                "top": 168,
-                "width": 33
+                "bottom": 69.37086092715232,
+                "left": 16.559139784946236,
+                "right": 79.89247311827957,
+                "top": 27.81456953642384
               },
               "type": "metric-value"
             },
@@ -1508,15 +1582,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-3",
               "placement": {
-                "height": 17,
-                "left": 190,
-                "top": 47,
-                "width": 33
+                "bottom": 89.40397350993378,
+                "left": 20.43010752688172,
+                "right": 76.0215053763441,
+                "top": 7.781456953642383
               },
               "type": "metric-value"
             },
@@ -1547,15 +1621,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-2",
               "placement": {
-                "height": 17,
-                "left": 154,
-                "top": 70,
-                "width": 33
+                "bottom": 85.59602649006622,
+                "left": 16.559139784946236,
+                "right": 79.89247311827957,
+                "top": 11.589403973509933
               },
               "type": "metric-value"
             },
@@ -1586,15 +1660,15 @@
               },
               "connections": [],
               "constraint": {
-                "horizontal": "left",
-                "vertical": "top"
+                "horizontal": "scale",
+                "vertical": "scale"
               },
               "name": "spine1-1",
               "placement": {
-                "height": 17,
-                "left": 154,
-                "top": 47,
-                "width": 33
+                "bottom": 89.40397350993378,
+                "left": 16.559139784946236,
+                "right": 79.89247311827957,
+                "top": 7.781456953642383
               },
               "type": "metric-value"
             }
@@ -1611,12 +1685,12 @@
         },
         "showAdvancedTypes": true
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_oper_state_oper_state",
@@ -1628,7 +1702,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -1662,7 +1736,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1711,12 +1785,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_ipv4_routes_active_routes{network_instance_name=\"default\",source=\"$NE\"}",
@@ -1729,7 +1803,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_ipv4_routes_total_routes{network_instance_name=\"default\",source=\"$NE\"}",
@@ -1741,7 +1815,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_ipv4_routes_active_routes_with_ecmp{network_instance_name=\"default\",source=\"$NE\"}",
@@ -1757,7 +1831,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1846,7 +1920,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "expr": "gnmic_srl_bgp_stats_up_peers{network_instance_name=\"default\",source=\"$NE\"}",
@@ -1854,21 +1928,33 @@
           "instant": false,
           "interval": "",
           "legendFormat": "Up Peers",
-          "refId": "A"
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
+          }
         },
         {
           "expr": "gnmic_srl_bgp_stats_total_peers{network_instance_name=\"default\",source=\"$NE\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "Total Peers",
-          "refId": "B"
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
+          }
         },
         {
           "expr": "gnmic_srl_bgp_stats_disabled_peers{network_instance_name=\"default\",source=\"$NE\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "Disabled Peers",
-          "refId": "C"
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
+          }
         }
       ],
       "title": "BGP Peer stats",
@@ -1877,7 +1963,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1959,7 +2045,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_traffic_rate_in_bps{source=\"$NE\"}",
@@ -1970,7 +2056,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_if_traffic_rate_out_bps{source=\"$NE\"}",
@@ -1986,7 +2072,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2042,7 +2128,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "expr": "gnmic_srl_bgp_stats_total_received_routes{network_instance_name=\"default\",source=\"$NE\"}",
@@ -2050,14 +2136,22 @@
           "instant": false,
           "interval": "",
           "legendFormat": "Total Received Routes",
-          "refId": "A"
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
+          }
         },
         {
           "expr": "gnmic_srl_bgp_stats_total_active_routes{network_instance_name=\"default\",source=\"$NE\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "Total Active Routes",
-          "refId": "B"
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
+          }
         }
       ],
       "title": "BGP Route Stats",
@@ -2066,7 +2160,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2147,7 +2241,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_cpu_instant{source=\"$NE\"}",
@@ -2162,7 +2256,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "description": "",
       "fieldConfig": {
@@ -2244,7 +2338,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_mem_free{source=\"$NE\"}",
@@ -2256,7 +2350,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_mem_utilization{source=\"$NE\"}",
@@ -2268,7 +2362,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_mem_reserved{source=\"$NE\"}",
@@ -2280,7 +2374,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_mem_physical{source=\"$NE\"}",
@@ -2296,7 +2390,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2374,7 +2468,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "expr": "gnmic_srl_net_instance_oper_state{network_instance_name='$Services'}",
@@ -2389,7 +2483,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2441,12 +2535,12 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "11.0.0",
+      "pluginVersion": "11.2.0-72343",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2497,7 +2591,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
       },
       "gridPos": {
         "h": 13,
@@ -2520,7 +2614,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
           },
           "editorMode": "code",
           "expr": "{application=\"$Logs\", source=\"$NE\"}",
@@ -2534,7 +2628,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2552,32 +2646,46 @@
         },
         "overrides": [
           {
-            "__systemRef": "hideSeriesFrom",
             "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "sr_aaa_mgr",
-                  "sr_bgp_mgr",
-                  "sr_cli",
-                  "sr_gnmi_server",
-                  "sr_log_mgr",
-                  "sr_mgmt_server",
-                  "sr_xdp_cpm",
-                  "aaa_authkeys"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
+              "id": "byName",
+              "options": "informational"
             },
             "properties": [
               {
-                "id": "custom.hideFrom",
+                "id": "color",
                 "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "warning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "error"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
                 }
               }
             ]
@@ -2618,11 +2726,11 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
           },
           "editorMode": "code",
-          "expr": "sum by (application) (count_over_time({source=\"$NE\"}[$__range]))",
-          "legendFormat": "{{application}}",
+          "expr": "sum by (level) (count_over_time({source=\"$NE\"}[$__range]))",
+          "legendFormat": "{{level}}",
           "queryType": "range",
           "refId": "A"
         }
@@ -2633,7 +2741,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
+        "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2678,13 +2786,58 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "error"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "informational"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "warning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -2710,10 +2863,10 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
+            "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
           },
           "editorMode": "code",
-          "expr": "sum by (level) (count_over_time({application=\"$Logs\",source=\"$NE\"} | logfmt [$__interval]))",
+          "expr": "sum by (level) (count_over_time({application=\"$Logs\",source=\"$NE\"} | logfmt [30s]))",
           "legendFormat": "{{level}}",
           "queryType": "range",
           "refId": "A"
@@ -2723,50 +2876,59 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "5s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
+        "allValue": "",
         "current": {
           "selected": false,
-          "text": "spine1",
-          "value": "spine1"
+          "text": "leaf1",
+          "value": "leaf1"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "definition": "label_values(source)",
         "hide": 0,
         "includeAll": false,
         "label": "",
         "multi": false,
         "name": "NE",
-        "options": [],
-        "query": {
-          "query": "label_values(source)",
-          "refId": "Prometheus-NE-Variable-Query"
-        },
-        "refresh": 2,
-        "regex": "",
+        "options": [
+          {
+            "selected": true,
+            "text": "leaf1",
+            "value": "leaf1"
+          },
+          {
+            "selected": false,
+            "text": "leaf2",
+            "value": "leaf2"
+          },
+          {
+            "selected": false,
+            "text": "leaf3",
+            "value": "leaf3"
+          },
+          {
+            "selected": false,
+            "text": "spine1",
+            "value": "spine1"
+          },
+          {
+            "selected": false,
+            "text": "spine2",
+            "value": "spine2"
+          }
+        ],
+        "query": "leaf1, leaf2, leaf3, spine1, spine2",
+        "queryValue": "",
         "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "type": "custom"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "default",
-          "value": "default"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
+          "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-PROM}"
         },
         "definition": "label_values(network_instance_name)",
         "hide": 0,
@@ -2785,14 +2947,10 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "sr_xdp_cpm",
-          "value": "sr_xdp_cpm"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
-          "uid": "P8E80F9AEF21F6940"
+          "uid": "${DS_GRAFANACLOUD-PARTNERSEDEMO-LOGS}"
         },
         "definition": "",
         "hide": 0,
@@ -2815,14 +2973,13 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-15m",
     "to": "now"
   },
-  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
   "timezone": "",
-  "title": "SR Linux Telemetry",
+  "title": "3 - SR Linux Telemetry",
   "uid": "kawVPD-Gk",
-  "version": 3,
+  "version": 24,
   "weekStart": ""
 }
