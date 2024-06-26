@@ -1,0 +1,9 @@
+name,type,path,top,height,left,width,Bottom,Right,Vertical center,Horizontal center
+leaf1,icon,leaf.png,400,70,70,70,470,140,435,105
+leaf2,icon,leaf.png,400,70,405,70,470,475,435,440
+leaf3,icon,leaf.png,400,70,740,70,470,810,435,775
+spine1,icon,leaf.png,30,70,300,70,100,370,65,335
+spine2,icon,leaf.png,30,70,440,70,100,510,65,475
+client1,icon,client.png,600,43.75,70,70,643.75,140,621.875,105
+client2,icon,client.png,600,43.75,405,70,643.75,475,621.875,440
+client3,icon,client.png,600,43.75,740,70,643.75,810,621.875,775

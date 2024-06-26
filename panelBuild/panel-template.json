@@ -1,0 +1,147 @@
+{
+  "datasource": {
+    "type": "prometheus",
+    "uid": "PBFA97CFB590B2093"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "color": {
+        "mode": "thresholds"
+      },
+      "unit": "binBps"
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 23,
+    "w": 12,
+    "x": 12,
+    "y": 1
+  },
+  "id": 16,
+  "options": {
+    "inlineEditing": true,
+    "showAdvancedTypes": true,
+    "panZoom": false,
+    "infinitePan": false,
+    "root": {
+      "background": {
+        "color": {
+          "fixed": "transparent"
+        },
+        "image": {
+          "fixed": "img/bg/linkbandwidth.jpg",
+          "mode": "fixed"
+        }
+      },
+      "border": {
+        "color": {
+          "fixed": "dark-green"
+        }
+      },
+      "elements": [
+        {
+          "background": {
+            "color": {
+              "fixed": "#D9D9D9"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "config": {
+            "align": "center",
+            "color": {
+              "fixed": "#000000"
+            },
+            "size": 12,
+            "text": {
+              "field": "leaf1:ethernet-1/1:out",
+              "fixed": "",
+              "mode": "field"
+            },
+            "valign": "middle"
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "name": "leaf1-1-out",
+          "placement": {
+            "top": 566,
+            "height": 21,
+            "left": 87,
+            "width": 72
+          },
+          "type": "metric-value"
+        }
+      ],
+      "name": "Element 1716482490884",
+      "type": "frame",
+      "constraint": {
+        "vertical": "top",
+        "horizontal": "left"
+      },
+      "placement": {
+        "width": 100,
+        "height": 100,
+        "top": 0,
+        "left": 0,
+        "rotation": 0
+      }
+    }
+  },
+  "pluginVersion": "11.0.0",
+  "targets": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "expr": "gnmic_srl_if_traffic_rate_out_bps",
+      "interval": "",
+      "legendFormat": "{{source}}:{{interface_name}}:out",
+      "refId": "A"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "expr": "gnmic_srl_if_traffic_rate_in_bps",
+      "interval": "",
+      "legendFormat": "{{source}}:{{interface_name}}:in",
+      "refId": "B"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "editorMode": "code",
+      "expr": "gnmic_srl_if_oper_state_oper_state",
+      "hide": false,
+      "legendFormat": "oper-state:{{source}}:{{interface_name}}",
+      "range": true,
+      "refId": "C"
+    }
+  ],
+  "title": "Link Bandwidth",
+  "type": "canvas"
+}
