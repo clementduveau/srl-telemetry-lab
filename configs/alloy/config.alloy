@@ -87,8 +87,8 @@ prometheus.scrape "gnmic" {
 
 // Logs
 ///////
-discovery.relabel "syslog" {
-	targets = []
+loki.relabel "syslog" {
+	forward_to = [loki.write.default.receiver]
 
 	rule {
 		source_labels = ["__syslog_message_hostname"]
@@ -126,7 +126,6 @@ loki.source.syslog "syslog" {
 		}
 		max_message_length = 0
 	}
-	forward_to    = [loki.write.default.receiver]
-	relabel_rules = discovery.relabel.syslog.rules
+	forward_to    = [loki.relabel.syslog.receiver]
 }
 ///////
